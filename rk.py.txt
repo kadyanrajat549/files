@@ -1,0 +1,36 @@
+import numpy as np
+import pandas  as pd
+
+data = {'name':['rajat'], 'age': [10], 'Branch':['cse'], 'year': ['2015'], 'sem':[6], 'prev_sem':[70]}
+
+def sem_score(percent, dataf):
+  print (dataf.loc[dataf.prev_sem == percent])
+
+dt = pd.DataFrame(data)
+
+print (dt)
+new_row = list()
+
+entry = int(input('would you like to enter details, enter 1 for yes and 0 for no:'))
+if entry == 1:
+  sdt_name = input('enter students name :')
+  new_row.append(sdt_name)
+  sdt_age = int(input('enter age:'))
+  new_row.append(sdt_age)
+  std_branch = input('enter branch:')
+  new_row.append(std_branch)
+  sdt_year = int(input('your current year:'))
+  new_row.append(sdt_year)
+  sdt_sem =int(input('semester :'))
+  new_row.append(sdt_sem)
+  presem = int(input('% of your previous semester:'))
+  new_row.append(presem)
+else:
+  print('thanks for disgretion')
+
+dt2 = pd.DataFrame(new_row, columns = ['name', 'age', 'Branch', 'year', 'sem', 'prev_sem'])
+
+print (pd.concat(dt, dt2))
+
+int2 = int(input('enter sem score u want to view:'))
+sem_score(int2, dt)
